@@ -1,0 +1,25 @@
+<form  [formGroup]="EvenementForm">
+    <div class="form-group">
+      <label for="imageInput">File</label>
+      <input type="file" class="form-control-file"formControlName="file" id="imageInput" >
+    </div>
+   
+    <div class="form-group">
+      <label for="dateDebutInput">Date Début *</label>
+      <input type="datetime" formControlName="dateHeureD" class="form-control" id="dateDebutInput" name="dateDebut" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="dateFinInput">Date Fin *</label>
+      <input type="datetime-local" formControlName="dateHeureF" class="form-control" id="dateFinInput" name="dateFin" required>
+    </div>
+    <div class="form-group">
+      <label for="dateFinInput">description*</label>
+      <input type="text" formControlName="description" class="form-control" id="descriptionInput" name="description" required>
+    </div>
+    <div class="form-group">
+      <label for="marketIdInput">Market ID *</label>
+      <input type="number" formControlName="marketid" class="form-control" id="marketIdInput" required>
+      </div>
+    <button type="submit" class="btn btn-primary"(click)="addEvenement()">Ajouter</button>
+</form>

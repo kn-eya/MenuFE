@@ -1,0 +1,23 @@
+<form  [formGroup]="ArticleForm">
+    <div class="form-group">
+      <label for="titreInput">Titre</label>
+      <input type="text" class="form-control-file"formControlName="file" id="titreInput" >
+    </div>
+   
+    <div class="form-group">
+        <label for="">Prix*</label>
+        <input type="number" formControlName="prix" class="form-control" id="prixInput"  required>
+      </div>
+    
+
+    <div class="form-group">
+      <label for="">description*</label>
+      <input type="text" formControlName="description" class="form-control" id="descriptionInput" name="description" required>
+    </div>
+   
+    <div class="form-group">
+      <label for="marketIdInput">Categorie ID *</label>
+      <input type="number" formControlName="categorieId" class="form-control" id="CategorieidInput" required>
+      </div>
+    <button type="submit" class="btn btn-primary"(click)="addArticle()">Ajouter</button>
+</form>

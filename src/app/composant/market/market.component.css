@@ -1,0 +1,16 @@
+/* CSS */
+.row {
+    display: flex;
+    justify-content: center; /* Centering the row */
+}
+
+.col-lg-6 {
+    width: 60%; /* Adjust this value to control the width of the card */
+    max-width: 600px; /* You can adjust the max width as per your preference */
+    margin: 0 auto; /* Centers the col-lg-6 element */
+}
+
+.card {
+    box-shadow: 10px 10px 15px lightblue; /* Add a light blue shadow */
+    border-radius: 20px; /* Add rounded corners */
+}

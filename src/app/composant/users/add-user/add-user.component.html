@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Informations</h2>
+    <form id="form" [formGroup]="form" >
+      <label for="name">Nom & Prénom <span class="required">*</span></label>
+      <input type="text" id="name"formControlName="name" required>
+      
+      
+      <h3>Information de connexion</h3>
+      
+      <label for="username">userName</label>
+      <input type="text" id="username"formControlName="userName">
+      
+      <label for="password">Password</label>
+      <input type="password" id="password"  formControlName="password"required>
+     
+     <button type="submit" class="btn btn-primary"(click)="onSubmit()">Ajouter</button>
+    </form>
+  </div>
+  

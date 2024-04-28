@@ -1,0 +1,134 @@
+<!-- events.component.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+ 
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  
+  
+</head>
+
+<body>
+    <app-header></app-header>
+    <app-sidebar></app-sidebar> 
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>categories</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">categorie</li>
+           
+          </ol>
+        </nav>
+      </div>
+      <section class="section">
+       <div class="events-container">
+    
+      
+        <div class="events-header">
+      <h2>categories</h2>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">+ Ajouter</button>
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">categorie</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+         <app-add-categorie ></app-add-categorie>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
+          
+    
+        </div>
+      </div></div>
+    <div class="events-filter">
+      <input type="text" [(ngModel)]="searchText" placeholder="Rechercher...">
+      
+      
+    </div>
+    <div class="events-list">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">CategorieID</th>
+            <th scope="col">SupCategorie</th>
+           <th scope="col">Libelle</th>
+           <th scope="col">Articles</th>
+        <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>{{ category.Categorieid }}</td>
+            <td>{{ category.supCategory }}</td>
+            <td>{{ category.libelle }}</td>
+            <td><a routerLink="/Article" class="badge bg-secondary">
+              <i class="bi bi-collection me-1"></i> Article
+          </a></td>
+           
+          
+            <td>
+              <button type="button" class="btn btn-primary btn-sm">éditer</button>
+              <button type="button" class="btn btn-outline-danger btn-sm">archiver</button> </td>
+          
+          </tr>
+          <tr *ngIf="categories.length === 0">
+            <td colspan="6" class="no-data">Aucune donnée disponible dans le tableau</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button class="btn btn-secondary" (click)="prevPage()">Précédent</button>
+        <button class="btn btn-secondary" (click)="nextPage()">Suivant</button>
+       </div>
+     
+    </div>
+   
+</div>
+
+</section>
+    </main>
+
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span></span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+   
+    Designed by <a href="https://bootstrapmade.com/"></a>
+  </div>
+</footer><!-- End Footer -->
+
+
+
+</body>
+
+</html>
+  
+ 
+ 

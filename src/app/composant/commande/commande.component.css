@@ -1,0 +1,6 @@
+.no-data {
+    text-align: center; /* Center text horizontally */
+    vertical-align: middle; /* Center text vertically */
+    cursor: pointer; /* Change the cursor to a pointer (hand) */
+    background-color: #d3d3d3; 
+  }

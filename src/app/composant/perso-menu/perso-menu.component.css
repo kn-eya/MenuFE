@@ -1,0 +1,13 @@
+.small-card .card-body {
+    font-size: 0.9rem; /* Reduce the font size as desired */
+    padding: 0.5rem; /* Adjust padding as desired */
+}
+
+/* CSS class for smaller breadcrumb */
+.small-breadcrumb {
+    font-size: 0.8rem; /* Reduce the font size of breadcrumb as desired */
+    padding: 0.3rem; /* Adjust padding as desired */
+}
+.icon i {
+    font-size: 2em; /* Adjust the size as needed, e.g., 1.5em, 2em, etc. */
+}

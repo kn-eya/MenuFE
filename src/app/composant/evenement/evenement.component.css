@@ -1,0 +1,67 @@
+.events-container {
+  width: 100%; /* Sets the width of the box to 100% of its container */
+ 
+    margin: 40px auto;
+    padding: 20px;
+   
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px lightblue; /* Add a light blue shadow */
+   
+  }
+  
+  .events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .events-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .events-list {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #999;
+    margin-top: 20px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .pagination button {
+    margin: 0 10px;
+  }
+  .no-data {
+    text-align: center; /* Center text horizontally */
+    vertical-align: middle; /* Center text vertically */
+    cursor: pointer; /* Change the cursor to a pointer (hand) */
+    background-color: #e5d7d7; 
+  }
+  

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Service Registration</title>
+  <meta content="Register for our service to access exclusive features." name="description">
+  <meta content="" name="keywords">
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container d-flex justify-content-center align-items-center">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+              <div class="d-flex justify-content-center py-4">
+                <a href="#" class="logo d-flex align-items-center w-auto">
+                  <img src="your-logo-url.png" alt="Your Service Logo">
+                  <span class="d-none d-lg-block">Your Service Name</span>
+                </a>
+              </div>
+              <div class="card-body">
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                  <p class="text-center small">Enter your personal details to create an account</p>
+                </div>
+
+                <form class="row g-3 needs-validation" novalidate action="submitRegistration()"  [formGroup]="registrationForm">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="yourName">Your Name</label>
+                      <input type="text" formControlName="name" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback" >Please, enter your name!</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="yourUsername">Username</label>
+                      <input type="text" formControlName="username" class="form-control" id="yourUsername" required>
+                      <div class="invalid-feedback" >Please choose a username.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="yourPassword">Password</label>
+                      <input type="password" formControlName="password" class="form-control" id="yourPassword" required>
+                      <div class="invalid-feedback" >Please enter your password!</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="terms" type="checkbox" value="" id="acceptTerms" required>
+                      <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="terms-and-conditions.html">terms and conditions</a></label>
+                      <div class="invalid-feedback" >You must agree before submitting.</div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                  </div>
+                  <div class="col-12">
+                    <p class="small mb-0">Already have an account? <a href="#">Log in</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="credits">
+          Designed by <a href="https://bootstrapmade.com/"></a>
+        </div>
+      </section>
+    </div>
+  </main><!-- End #main -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+</body>
+
+</html>
