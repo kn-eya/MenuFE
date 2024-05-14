@@ -25,7 +25,7 @@
     
 <main id="main" class="main">
     <div class="pagetitle">
-        <h1>Article</h1>
+        <h1>Article | {{libelle}}</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -48,13 +48,13 @@
     
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title"><Article></Article></h4>
+            <h4 class="modal-title"></h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
     
           <!-- Modal body -->
           <div class="modal-body">
-      <app-add-article></app-add-article>
+      <app-add-article [idcat]="categoryId"></app-add-article>
           </div>
     
           <!-- Modal footer -->
@@ -73,7 +73,7 @@
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+         
             <th>title</th>
             <th>Description</th>
             <th>prix</th>
@@ -82,7 +82,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let article of articles ">
-            <td>{{ article.articleId}}</td>
+    
             <td>{{ article.title}}</td>
             <td>{{ article.description }}</td>
             <td>{{ article.prix }}</td>

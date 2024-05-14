@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ArticleService {
 
-
+ private url = 'http://localhost:8081';
 
   constructor(private http: HttpClient, private router: Router) { }
   addarticle(art: Article): Observable<Article> {
@@ -21,11 +21,11 @@ export class ArticleService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.post<Article>(`http://localhost:8080/api/article/add`, art,{ headers });
+    return this.http.post<Article>(`http://localhost:8081/api/article/add`, art,{ headers });
   }
 
   // Method to fetch all Evenements
-  getarticlesByCategorie(): Observable<Article[]> {
+  getarticlesByCategorie(idCategorie: number): Observable<Article[]> {
     const token = localStorage.getItem('token')as string;
 
     // Define headers, including Content-Type and Authorization if token is available
@@ -33,7 +33,7 @@ export class ArticleService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.get<Article[]>(`http://localhost:8080/api/article/getAllbyCategorie/3`,{ headers });
+    return this.http.get<Article[]>(`http://localhost:8081/api/article/getAllbyCategorie/${idCategorie}`,{ headers });
   }
 
   getarticles(): Observable<Article[]> {
@@ -44,6 +44,6 @@ export class ArticleService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.get<Article[]>(`http://localhost:8080/api/article/all`,{ headers });
+    return this.http.get<Article[]>(`http://localhost:8081/api/article/all`,{ headers });
   }
 }

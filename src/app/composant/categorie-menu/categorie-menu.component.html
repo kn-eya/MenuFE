@@ -1,0 +1,12 @@
+<div *ngIf="categorie" class="category-menu">
+    <button class="btn btn-primary m-2" (click)="toggleArticles()">{{ categorie.libelle }}</button>
+    <ul *ngIf="articleVisibility[categorie.id]" class="list-unstyled">
+      <li *ngFor="let sousCategorie of categorie.sousCategorie" class="animate-fade-in">
+        <app-categorie-menu [categorie]="sousCategorie" [articleVisibility]="articleVisibility"></app-categorie-menu>
+      </li>
+      <li *ngFor="let article of categorie.articles" class="animate-fade-in">
+        <app-article-menu [article]="article"></app-article-menu>
+      </li>
+    </ul>
+  </div>
+  

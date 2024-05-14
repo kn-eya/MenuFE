@@ -1,5 +1,6 @@
 .events-container {
-  max-width: 900px;
+  width: 100%; /* Sets the width of the box to 100% of its container */
+ 
   margin: 40px auto;
   padding: 20px;
  

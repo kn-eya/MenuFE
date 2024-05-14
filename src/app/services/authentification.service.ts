@@ -1,3 +1,5 @@
+import { MarketService } from './../service/market.service';
+import { Market } from './../Models/market.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -11,8 +13,8 @@ export class AuthentificationService {
 
   users: AppUser[] = [];
   authenticatedUser: any;
-
-  constructor(private http: HttpClient) {}
+ markets:Market[] | undefined ; 
+  constructor(private http: HttpClient,private marketService: MarketService) {}
   $headers2 = new HttpHeaders()
   .set('content-type', 'application/json')
   .set('Authorization', String('Bearer ' + localStorage.getItem('token')));
@@ -22,7 +24,7 @@ export class AuthentificationService {
   public login(userName: string, password: string): Observable<any> {
     let appUser = { userName: userName, password: password}
       
-  var res=  this.http.post("http://localhost:8080/login", appUser, this.headers);
+  var res=  this.http.post("http://localhost:8081/login", appUser, this.headers);
   
     return res;
   }
@@ -55,7 +57,15 @@ export class AuthentificationService {
 
     localStorage.setItem('userName', userName);
     localStorage.setItem('token', token);
-
+    this.marketService.getMarketsByUserName(userName).subscribe({
+      next: (data) => {
+        this.markets = data;
+      },  
+    })
+    if(this.markets && this.markets.length==1){
+      localStorage.removeItem('marketsId');
+      localStorage.setItem('marketsId',this.markets[0].id.toString());
+    }
     return of(true);
   }
 

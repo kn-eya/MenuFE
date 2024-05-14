@@ -1,20 +1,27 @@
+
+
+import { Role } from './../Models/role.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from '../Models/user.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
-  $headers = new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Authorization', String('Bearer ' + localStorage.getItem('token')));
+ 
+constructor(private http: HttpClient) { }
 
-private headers = { headers: this.$headers };
-  private baseUrl = ''; // Replace this with your Spring Boot API URL
+  registerUser(userRequestDto:any): Observable<any> {
 
-  constructor(private http: HttpClient) { }
+    const token = localStorage.getItem('token')as string;
 
-  registerUser(userData: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, userData);
+    // Define headers, including Content-Type and Authorization if token is available
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
+    });
+    return this.http.post(`http://localhost:8080/account/registre`, userRequestDto); 
   }
 }

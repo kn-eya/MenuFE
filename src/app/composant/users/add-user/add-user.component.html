@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Informations</h2>
-    <form id="form" [formGroup]="form" >
+    <form id="form" [formGroup]="Userform" >
       <label for="name">Nom & Prénom <span class="required">*</span></label>
       <input type="text" id="name"formControlName="name" required>
       
@@ -13,7 +13,7 @@
       <label for="password">Password</label>
       <input type="password" id="password"  formControlName="password"required>
      
-     <button type="submit" class="btn btn-primary"(click)="onSubmit()">Ajouter</button>
+     <button type="submit" class="btn btn-primary"(click)="adduser()">Ajouter</button>
     </form>
   </div>
   

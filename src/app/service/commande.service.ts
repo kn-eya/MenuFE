@@ -9,7 +9,7 @@ import { Commande } from '../Models/commande';
   providedIn: 'root'
 })
 export class CommandeService {
-  private apiUrl = 'http:localhost:8080/commandes';
+  private apiUrl = 'http://localhost:8081/commandes';
 
 
   constructor(private http: HttpClient, private router: Router) { }

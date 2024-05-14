@@ -18,6 +18,11 @@ import { AddUserComponent } from './composant/users/add-user/add-user.component'
 import { UsersComponent } from './composant/users/users.component';
 import { AddArticleComponent } from './composant/article/add-article/add-article.component';
 import { PersoMenuComponent } from './composant/perso-menu/perso-menu.component';
+import { AddMarketComponent } from './composant/market/add-market/add-market.component';
+import { MenuComponent } from './composant/menu/menu.component';
+import { SelectMenuComponent } from './composant/select-menu/select-menu.component';
+import { EditCategorieComponent } from './composant/categorie/edit-categorie/edit-categorie.component';
+import { SousCategorieComponent } from './composant/categorie/sous-categorie/sous-categorie.component';
 
 
 
@@ -38,6 +43,10 @@ const routes: Routes=[
 {
   path: 'Categorie',
  component:CategorieComponent
+  
+},{
+  path: 'SousCategorie',
+ component:SousCategorieComponent
   
 },
 
@@ -90,6 +99,23 @@ const routes: Routes=[
   path: 'perso',
  component:PersoMenuComponent
   
+},{
+  path: 'addMarket',
+ component:AddMarketComponent
+  
+
+  
+}
+,{
+  path: 'Menu',
+ component:MenuComponent
+}
+,{
+  path: 'selectMarket',
+ component:SelectMenuComponent
+},{
+  path: 'EditCategory',
+ component:EditCategorieComponent
 }
 ]
 

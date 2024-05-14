@@ -15,23 +15,29 @@ throw new Error('Method not implemented.');
 }
   categories: Categorie[]=[];
    // State variable for categories
-  articlesByCategory: Article[]= []; // Dictionary to hold articles by category ID
+   articlesByCategory: Record<number, Article[]> = {};
+   // ou
+   // articlesByCategory: Map<number, Article[]> = new Map();
+    // Dictionary to hold articles by category ID
 
   constructor(private categoryService: CategorieService, private articleService: ArticleService) {} // Inject the services
 
   ngOnInit() {
-      // Fetch categories on component initialization
-      this.categoryService.getAllCategories().subscribe(categories => {
-          this.categories = categories;
+     this.categoryService.getAllCategories().subscribe(categories => {
+        categories.sort((a: Categorie, b: Categorie): number => {
+            // Compare les niveaux des catégories pour déterminer l'ordre de tri
+            return a.niveau - b.niveau;
+        });
+         this.categories = categories;
 
-          // Fetch articles for each category
-          this.categories.forEach(category => {
-              this.articleService.getarticlesByCategorie().subscribe(articles => {
-                  // Store the articles in the dictionary with the category ID as the key
-                  this.articlesByCategory = articles;
-              });
-          });
-      });
+     // Fetch articles for each category
+      this.categories.forEach(category => {
+        this.articleService.getarticlesByCategorie(category.categorieid).subscribe(articles => {
+            // Store the articles in the dictionary with the category ID as the key
+           this.articlesByCategory[category.categorieid] = articles;
+       });
+    });
+     });
   }
 
 
@@ -50,11 +56,11 @@ throw new Error('Method not implemented.');
           reader.readAsDataURL(file);
       }
   }
-  categoryTextColor: string = '#4154f1';
-  categoryBackgroundColor: string = '#4154f1';
-  articleTextColor: string = '#4154f1';
-    articleBackgroundColor: string = '#4154f1';
-
+  categoryTextColor: string = '#FFFFFF'; // Couleur de texte blanche pour la lisibilité
+  categoryBackgroundColor: string = '#4A90E2'; // Couleur d'arrière-plan bleue plus foncée
+  articleTextColor: string = '#FFFFFF'; // Couleur de texte blanche pour la lisibilité
+  articleBackgroundColor: string = '#4A90E2'; // Couleur d'arrière-plan bleue plus foncée
+  
     // Method to handle category text color change
     onCategoryTextColorChange(event: any) {
         this.categoryTextColor = event.target.value;

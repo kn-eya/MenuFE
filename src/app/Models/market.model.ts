@@ -7,5 +7,6 @@ export class Market {
    adresse!: string;
     numero!: number;
     media!: string;
+    adminUserName!:string;
   
 }

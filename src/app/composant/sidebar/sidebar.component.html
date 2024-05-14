@@ -4,11 +4,11 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link  collapsed" href="/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -22,48 +22,43 @@
             </a>
           </li>
     </ul>
-      </li><!-- End Components Nav -->
+      </li>
+       <li class="nav-item">
+        <a class="nav-link collapsed" routerLink="/selectMarket">
+          <i class="bi bi-dash-circle"></i>
+          <span>Point De Vente</span>
+        </a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"routerLink="/market">
           <i class="bi bi-journal-text"></i><span>Market</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" routerLink="/langue">
           <i class="bi bi-layout-text-window-reverse"></i><span>Langues</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
+         
          
         </ul>
-      </li><!-- End Tables Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse"routerLink="/Evenement">
           <i class="bi bi-bar-chart"></i><span>Evenement</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         
-      </li><!-- End Charts Nav -->
+      </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" routerLink="/feedback">
           <i class="bi bi-gem"></i><span>Feedbacks</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
        
-      </li><!-- End Icons Nav -->
+      </li>
 
       <li class="nav-heading">Commandes</li>
 
@@ -82,9 +77,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" routerLink="/Article">
+        <a class="nav-link collapsed" routerLink="/Menu">
           <i class="bi bi-envelope"></i>
-          <span>Articles</span>
+          <span>Menu</span>
         </a>
       </li>
 
@@ -94,29 +89,7 @@
           <span>Design Menu</span>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" routerLink="/">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li>
-
-    </ul>
+</ul>
 
   </aside>
 

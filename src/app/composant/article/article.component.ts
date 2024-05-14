@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../../Models/article';
 import { ArticleService } from '../../service/article.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-article',
@@ -8,45 +9,35 @@ import { ArticleService } from '../../service/article.service';
   styleUrl: './article.component.css'
 })
 export class ArticleComponent implements OnInit{
-articles: Article[]=[];
-constructor( private articleService:ArticleService  ) {}
-ngOnInit(): void {
-  this.findAllArticles(); 
-
-
-
-
-
-
-
   
+  articles: Article[]=[];
+  libelle: any;
+  categoryId: any;
+ 
+constructor( private articleService:ArticleService,private route:ActivatedRoute  ) {}
+ngOnInit(): void {
+  this.route.queryParams.subscribe (params=>{
+    this.categoryId = params["category"]; 
+    this.libelle  = params["libelle"];  
+  }); 
+  
+  this.findArticlebyCategorie( this.categoryId);
+   
 }
-findArticlebyCategorie() {
-  this. articleService.getarticlesByCategorie().subscribe({
+findArticlebyCategorie(category: number): void {
+  console.log(category)
+  this. articleService.getarticlesByCategorie(category).subscribe({
     next: (articles: Article[]) => {
       // Assign the fetched events to the events property
       this.articles = articles;
     },
     error: (err) => {
       // Handle errors that occur during the request
-      console.error('Error fetching events:', err);
+      console.error('Error fetching articles:', err);
     }
   });
 }
 
-
-findAllArticles(){
-  this. articleService.getarticles().subscribe({
-    next: (articles: Article[]) => {
-      // Assign the fetched events to the events property
-      this.articles = articles;
-    },
-    error: (err) => {
-      // Handle errors that occur during the request
-      console.error('Error fetching events:', err);
-    }
-  });
-}
 
 prevPage() {
   throw new Error('Method not implemented.');
@@ -54,10 +45,10 @@ prevPage() {
   nextPage() {
   throw new Error('Method not implemented.');
   }
-  deleteEvent(_t60: any) {
+  deletearticle(_t60: any) {
   throw new Error('Method not implemented.');
   }
-  editEvent(_t60: any) {
+  editarticle(_t60: any) {
   throw new Error('Method not implemented.');
   }
   searchText: any;

@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #f7f9fa; /* light blue background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* add a subtle box shadow */
+    padding: 10px; /* add some padding */
+    border-radius: 5px; /* add a slight border radius */
+    width: 100%; /* make the navbar take up the full width of the screen */
+    margin-bottom: 20px; /* add some margin at the bottom */
+  }
+  .breadcrumb {
+    padding: 5px;
+  }
+  .card {    box-shadow: 10px 10px 15px lightblue;
+    max-width: 150px;
+    /* adjust the width as needed */
+    cursor: pointer;}
+ .carousel-inner {
+    height: 100px; /* adjust the height as needed */
+  }
+ .carousel-item img {
+    height: 100%; /* make the image take the full height of the carousel item */
+    object-fit: cover; /* make the image cover the entire carousel item */
+  }
+  .card-title {
+    color: lightblue;
+}

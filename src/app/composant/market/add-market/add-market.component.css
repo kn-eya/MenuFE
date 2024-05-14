@@ -1,0 +1,134 @@
+/* CSS */
+.row {
+    display: flex;
+    justify-content: center; /* Centering the row */
+}
+
+.col-lg-6 {
+    width: 60%; /* Adjust this value to control the width of the card */
+    max-width: 600px; /* You can adjust the max width as per your preference */
+    margin: 0 auto; /* Centers the col-lg-6 element */
+}
+
+.card {
+    box-shadow: 10px 10px 15px lightblue; /* Add a light blue shadow */
+    border-radius: 20px; /* Add rounded corners */
+}
+.breadcrumb {
+    margin: 0; /* Remove margin */
+    padding: 4px 8px; /* Adjust padding as needed */
+    height: 80px; /* Adjust height as needed */
+    font-size: 1.8rem; /* Optional: adjust font size */
+}
+/* main.css */
+
+/* Global styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  /* Navigation */
+  
+  .breadcrumb {
+    padding: 10px;
+    list-style: none;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb-item {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .breadcrumb-item a {
+    color: #337ab7;
+    text-decoration: none;
+  }
+  
+  /* Card */
+  
+  .card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Form */
+  
+  .form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .form-label {
+    margin-bottom: 10px;
+  }
+  
+  /* Footer */
+  
+  .footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+  }
+  
+  .copyright {
+    margin-bottom: 10px;
+  }
+  
+  .credits {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  /* Responsive design */
+  
+  @media (max-width: 768px) {
+   .card {
+      margin-bottom: 10px;
+    }
+   .form-control {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+   .breadcrumb {
+      padding: 5px;
+    }
+   .card {
+      margin-bottom: 5px;
+    }
+   .form-control {
+      width: 60%;
+    }
+    .btn-primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto; /* adjust the margin to your liking */
+      }
+  }

@@ -35,6 +35,15 @@ import { AddCommandeComponent } from './composant/commande/add-commande/add-comm
 import { AddFeedbackComponent } from './composant/feedback/add-feedback/add-feedback.component';
 import { PersoMenuComponent } from './composant/perso-menu/perso-menu.component';
 import { HomeComponent } from './composant/home/home.component';
+import { EditCategorieComponent } from './composant/categorie/edit-categorie/edit-categorie.component';
+import { AddMarketComponent } from './composant/market/add-market/add-market.component';
+import { MenuComponent } from './composant/menu/menu.component';
+import { CategorieMenuComponent } from './composant/categorie-menu/categorie-menu.component';
+import { ArticleMenuComponent } from './composant/article-menu/article-menu.component';
+import { SelectMenuComponent } from './composant/select-menu/select-menu.component';
+import { UsermenuComponent } from './usermenu/usermenu.component';
+import { SousCategorieComponent } from './composant/categorie/sous-categorie/sous-categorie.component';
+
 
 
 @NgModule({
@@ -60,6 +69,15 @@ import { HomeComponent } from './composant/home/home.component';
     AddFeedbackComponent,
     PersoMenuComponent,
     HomeComponent,
+    EditCategorieComponent,
+    AddMarketComponent,
+    MenuComponent,
+    CategorieMenuComponent,
+    ArticleMenuComponent,
+    SelectMenuComponent,
+    UsermenuComponent,
+    SousCategorieComponent,
+  
  
    
    

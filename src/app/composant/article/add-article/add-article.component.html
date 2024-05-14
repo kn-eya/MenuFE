@@ -1,7 +1,13 @@
 <form  [formGroup]="ArticleForm">
-    <div class="form-group">
-      <label for="titreInput">Titre</label>
-      <input type="text" class="form-control-file"formControlName="file" id="titreInput" >
+  <div class="form-group">
+    <label for="">Catégorie</label> 
+    <select class="form-control" formControlName="category" > 
+      <option  *ngFor="let category of categories" [value]="category.libelle" [value]="category.categorieid"  > {{ category.libelle }}</option> 
+    </select>
+    </div>
+  <div class="form-group">
+      <label for="">Titre*</label>
+      <input type="text" class="form-control" formControlName="titre" id="titreInput"  required>
     </div>
    
     <div class="form-group">
@@ -14,10 +20,6 @@
       <label for="">description*</label>
       <input type="text" formControlName="description" class="form-control" id="descriptionInput" name="description" required>
     </div>
-   
-    <div class="form-group">
-      <label for="marketIdInput">Categorie ID *</label>
-      <input type="number" formControlName="categorieId" class="form-control" id="CategorieidInput" required>
-      </div>
+  
     <button type="submit" class="btn btn-primary"(click)="addArticle()">Ajouter</button>
 </form>

@@ -4,13 +4,11 @@ import { Market } from './market.model';
 
 
 export class Categorie {
-        Categorieid!: number;
+        categorieid!: number;
         libelle!: string;
         niveau!: number;
-        supCategory!: string;
-        market!: Market;
-        article!: Article;                                                                                          
-        
-        
-      
+        supCategorieId!: number;
+        supcategorieLibelle!: string;
+        Marketid!: number;
+        notHasSubCategories!:boolean;                                                                                           
 }

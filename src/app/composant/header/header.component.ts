@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  // localStorage 
+
+  // get Name 
+
+  // get Role 
+
+
 }

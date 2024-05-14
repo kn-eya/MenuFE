@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../service/user.service';
+import { UserRequestDto } from '../../../Models/userRequestDto.model';
+import { RegistrationService } from '../../../service/registration.service';
 
 
 @Component({
@@ -8,38 +10,45 @@ import { UserService } from '../../../service/user.service';
   templateUrl: './add-user.component.html',
   styleUrl: './add-user.component.css'
 })
-export class AddUserComponent {
+export class AddUserComponent implements OnInit {
+  ngOnInit(): void { console.log("working")
+    // Initialize the form group
+    this.Userform = this.formBuilder.group({
+     name: ['', [Validators.required]],
+     userName: ['',[Validators.required]],
+     password: ['', [Validators.required]]
+   });// Perform any initialization if necessary
+ }
+ Userform!: FormGroup;
 
-  form!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private registrationService: RegistrationService) {
    
   }
  
 
-  ngOnInit(): void {
-     // Initialize the form group
-     this.form = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      userName: ['',[Validators.required]],
-      password: ['', [Validators.required]]
-    });// Perform any initialization if necessary
-  }
-  onSubmit(): void {
-    // Get form values as an object
-    const formData = this.form.value;
 
-    // Call the service method and pass the form data
-    this.userService.addUser(formData).subscribe({
-        next: (response) => {
-            console.log('Success:', response);
-            // Handle success (e.g., show a success message, clear form, etc.)
-        },
-        error: (error) => {
-            console.error('Error:', error);
-            // Handle error (e.g., show an error message)
-        }
-    });
-}
+  adduser(): void {
+    let  userRequestDto= new UserRequestDto(); 
+    userRequestDto.nom=this.Userform.value.name;
+    userRequestDto.userName=this.Userform.value.userName;
+    userRequestDto.password=this.Userform.value.password;
+    if(localStorage.getItem('authority')==="Admin"){
+     userRequestDto.roleName="Manager" ; 
+     userRequestDto.userNameConnectee!=localStorage.getItem('userName');
+    }
+    else {
+      userRequestDto.roleName="Admin" ;
+    }
+    this.registrationService.registerUser(userRequestDto).subscribe(
+      response => {
+       
+        console.log('Registration successful:', response);
+      },
+      error => {
+        
+        console.error('Registration failed:', error);
+      }
+    );
+  }
 
 }

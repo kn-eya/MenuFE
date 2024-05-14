@@ -121,8 +121,8 @@
                   <div *ngFor="let category of categories">
                     <h4 [ngStyle]="{ color: categoryTextColor, backgroundColor: categoryBackgroundColor }">{{ category.libelle }}</h4>
                     <ul>
-                        <li *ngFor="let article of articlesByCategory">
-                            <span [ngStyle]="{ color: articleTextColor, backgroundColor: articleBackgroundColor }">{{ article }}</span>
+                        <li *ngFor="let article of articlesByCategory[category.categorieid] ">
+                            <span [ngStyle]="{ color: articleTextColor, backgroundColor: articleBackgroundColor }"> {{ article.title }} - {{ article.prix | currency }}- {{ article.description | currency }}</span>
                         </li>
                     </ul>
                 </div>

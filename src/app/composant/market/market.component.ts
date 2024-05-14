@@ -29,26 +29,7 @@ export class MarketComponent implements OnInit {
     this. findallMarkets();
   }
 
-  // Method to add a new market
-  addMarket(): void {
-    const market =this.marketForm.value;
-    this.marketService.addMarket(market).subscribe({
-      next: (res) => {
-          // Handle the successful addition of a new market
-          console.log('Market added successfully:', res);
-          
-          // Reset the form after successful addition
-          this.marketForm.reset();
-      },
-      error: (error: any) => {
-          // Handle any errors during the request
-          console.error('Error adding market:', error);
-      }
-  });
-  }
-  
-
-  // Method to fetch existing markets
+ // Method to fetch existing markets
   findallMarkets(): void {
     this.marketService.getMarkets().subscribe(
       (data: Market[]) => {
@@ -70,6 +51,7 @@ export class MarketComponent implements OnInit {
       }
     );
   }
+  market!: Market;
   updateMarket(market: Market): void {
     this.marketService.updateMarket(market).subscribe(
       (updatedMarket: Market) => {

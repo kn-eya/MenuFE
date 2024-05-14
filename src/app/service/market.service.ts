@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Market } from '../Models/market.model';
 import { Router } from '@angular/router';
+import { MenuResponse } from '../Models/menu-response';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class MarketService {
 
   // Method to add a new market
   addMarket(market: Market): Observable<Market> {
-    const url = 'http://localhost:8080/markets/add'; // Correct URL format
+    const url = 'http://localhost:8081/markets/add'; // Correct URL format
 
     // Retrieve token from local storage
     const token = localStorage.getItem('token')as string;
@@ -42,18 +43,41 @@ export class MarketService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.get<Market[]>(`http//localhost:8080/markets/all`,{ headers });
+    return this.http.get<Market[]>(`http://localhost:8081/markets/all`,{ headers });
   }
    // Update a market in the array
    updateMarket(market: Market): Observable<Market> {
-    return this.http.put<Market>(`localhost:8080/markets/update/${market.id}`,  JSON.stringify( market ),
+    return this.http.put<Market>(`http://localhost:8081/markets/update/${market.id}`,  JSON.stringify( market ),
 );
   }
 
   // Delete a market from the array
   deleteMarket(market: Market): Observable<Market> {
-    return this.http.delete<Market>(`localhost:8080/markets/delete/${market.id}`);
+    return this.http.delete<Market>(`localhost:8081/markets/delete/${market.id}`);
   }
+  getMenu(id:number): Observable<any> {
+    const token = localStorage.getItem('token')as string;
+
+    // Define headers, including Content-Type and Authorization if token is available
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
+    });
+    return this.http.get<MenuResponse>(`http://localhost:8081/markets/menu/${id}`,{ headers });
+  }
+
+
+  getMarketsByUserName(userName:string): Observable<any> {
+    const token = localStorage.getItem('token')as string;
+
+    // Define headers, including Content-Type and Authorization if token is available
+    const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
+    });
+    return this.http.get<Market[]>(`http://localhost:8081/markets/getByUserName/{userName}`,{ headers });
+  }
+
 
 
 }

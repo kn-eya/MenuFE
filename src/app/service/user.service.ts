@@ -6,19 +6,15 @@ import { environment } from '../../environments/environment';
 import { RoleUserForm } from '../Models/role-user-form';
 import { Role } from '../Models/role.model';
 import { AppUser } from '../Models/AppUser';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  $headers = new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Authorization', String('Bearer ' + localStorage.getItem('token')));
 
-private headers = { headers: this.$headers };
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   addUser(user: AppUser): Observable<AppUser> {
     const token = localStorage.getItem('token')as string;
 
@@ -27,7 +23,7 @@ private headers = { headers: this.$headers };
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.post<AppUser>(`${environment.apiUrl}account/addUser`, user,{ headers });
+    return this.http.post<AppUser>(`http://localhost:8081/account/addUser`, user,{ headers });
   }
   getUsers(): Observable<AppUser[]> {
     const token = localStorage.getItem('token')as string;
@@ -70,7 +66,5 @@ public addNewRole(appRole:Role): Observable<Role> {
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
   return this.http.post<Role>(
-      `${environment.apiUrl}/account/addRole`, // Endpoint URL
-      appRole
-  );
+      `${environment.apiUrl}/account/addRole`, appRole);
 }}

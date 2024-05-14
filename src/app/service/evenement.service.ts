@@ -15,7 +15,7 @@ export class EvenementService {
 
   // Method to add a newEvenement
   addEvenement(ev: Evenement): Observable<Evenement> {
-    const url = 'http://localhost:8080/evenements/created'; // Correct URL format
+    const url = 'http://localhost:8081/evenements/created'; // Correct URL format
 
     // Retrieve token from local storage
     const token = localStorage.getItem('token')as string;
@@ -38,16 +38,16 @@ export class EvenementService {
           'Content-Type': 'application/json',
           'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
       });
-    return this.http.get<Evenement[]>(`http://localhost:8080/evenements/allevenement`,{ headers });
+    return this.http.get<Evenement[]>(`http://localhost:8081/evenements/allevenement`,{ headers });
   }
    
    updateEvenement(ev: Evenement): Observable<Evenement> {
-    return this.http.put<Evenement>(`http://localhost:8080/evenements/update/${ev.id}`, ev);
+    return this.http.put<Evenement>(`http://localhost:8081/evenements/update/${ev.id}`, ev);
   }
 
   // Delete an Evenement from the array
   deleteEvenement(ev: Evenement): Observable<Evenement> {
-    return this.http.delete<Evenement>(`http://localhost:8080/evenements/delete/${ev.id}`);
+    return this.http.delete<Evenement>(`http://localhost:8081/evenements/delete/${ev.id}`);
   }
 
 }

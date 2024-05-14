@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EvenementService } from '../../../service/evenement.service';
 
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { Evenement } from '../../../Models/evenement';
 
 @Component({
   selector: 'app-add-evenement',
@@ -28,8 +29,15 @@ export class AddEvenementComponent implements OnInit{
 addEvenement() : void{
   // Check if the form is valid
  const  ev =this.EvenementForm.value;
+ let cat =new Evenement();
+ cat.marketid=1;
+ cat.file= ev.file;
+ cat.dateHeureD=ev.dateHeureD;
+ cat.dateHeureF=ev.dateHeureF;
+ cat.description=ev.description;
+ 
       // Call the addEvenement method from the service
-      this.myService.addEvenement(ev)
+      this.myService.addEvenement(cat)
           .subscribe({
               // Handle the successful addition of the event
               next: (res) => {

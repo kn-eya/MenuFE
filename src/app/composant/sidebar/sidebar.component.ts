@@ -10,4 +10,8 @@ export class SidebarComponent {
 
  
  constructor(){}
+
+ // get path using right now 
+
+ 
 }

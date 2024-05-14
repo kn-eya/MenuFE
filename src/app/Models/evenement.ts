@@ -7,5 +7,5 @@ export class Evenement {
         dateHeureD!: Date;
          dateHeureF!: Date; 
         file!: string;
-        market!: Market;
+        marketid!: number;
 }

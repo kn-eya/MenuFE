@@ -6,7 +6,7 @@
    
     <div class="form-group">
       <label for="dateDebutInput">Date Début *</label>
-      <input type="datetime" formControlName="dateHeureD" class="form-control" id="dateDebutInput" name="dateDebut" required>
+      <input type="datetime-local" formControlName="dateHeureD" class="form-control" id="dateDebutInput" name="dateDebut" required>
     </div>
     
     <div class="form-group">
@@ -17,9 +17,6 @@
       <label for="dateFinInput">description*</label>
       <input type="text" formControlName="description" class="form-control" id="descriptionInput" name="description" required>
     </div>
-    <div class="form-group">
-      <label for="marketIdInput">Market ID *</label>
-      <input type="number" formControlName="marketid" class="form-control" id="marketIdInput" required>
-      </div>
-    <button type="submit" class="btn btn-primary"(click)="addEvenement()">Ajouter</button>
+   
+    <button type="submit" class="btn btn-primary"(click)="addEvenement()">Modifer</button>
 </form>
