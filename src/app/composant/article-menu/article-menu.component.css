@@ -1,0 +1,23 @@
+/* Style pour chaque article */
+.article {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  /* Style pour le titre de l'article */
+  .article .title {
+    font-weight: bold;
+    color: #333; /* Couleur du texte */
+  }
+  
+  /* Style pour le prix de l'article */
+  .article .price {
+    color: #007bff; /* Couleur bleue */
+  }
+  
+  /* Style pour la description de l'article */
+  .article .description {
+    color: #666; /* Couleur grise */
+  }
+  

@@ -5,5 +5,5 @@ export class Article {
     title!: string;
     prix!: number; // TypeScript uses `number` instead of `Double`
     description!: string;
-    categorie!: Categorie;
+    categorieId!: number;
 }

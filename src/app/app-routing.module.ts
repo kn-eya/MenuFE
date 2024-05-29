@@ -23,6 +23,7 @@ import { MenuComponent } from './composant/menu/menu.component';
 import { SelectMenuComponent } from './composant/select-menu/select-menu.component';
 import { EditCategorieComponent } from './composant/categorie/edit-categorie/edit-categorie.component';
 import { SousCategorieComponent } from './composant/categorie/sous-categorie/sous-categorie.component';
+import { AddCommandeComponent } from './composant/commande/add-commande/add-commande.component';
 
 
 
@@ -66,6 +67,10 @@ const routes: Routes=[
 },{
   path: 'Commande',
  component:CommandeComponent
+  
+},{
+  path: 'adCommande',
+ component:AddCommandeComponent
   
 },{
   path: 'Article',

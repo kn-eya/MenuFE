@@ -1,0 +1,35 @@
+/* CSS */
+.cart-interface {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    margin: 40px auto;
+  }
+  
+  .cart-interface h2 {
+    margin-top: 0;
+  }
+  
+  .cart-interface button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-interface button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .cart-interface button#close-btn {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .cart-interface button#close-btn:hover {
+    background-color: #aaa;
+  }

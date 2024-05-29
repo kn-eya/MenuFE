@@ -1,6 +1,7 @@
 import { FeedbackService } from './../../../service/feedback.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Feedback } from '../../../Models/feedback';
 
 @Component({
   selector: 'app-add-feedback',
@@ -20,6 +21,10 @@ export class AddFeedbackComponent implements OnInit{
   addFeedback() : void{
     // Check if the form is valid
    const  Feed =this.FeedbackForm.value;
+   let cat =new Feedback();
+   
+   
+   cat.message=Feed.message;
         // Call the addEvenement method from the service
         this.myService.addfeedback(Feed)
             .subscribe({

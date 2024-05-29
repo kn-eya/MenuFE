@@ -1,179 +1,72 @@
-.body {
-  height: 100vh; /* Utiliser 100% de la hauteur de la fenêtre */
-  margin: 40; /* Retirer les marges par défaut du navigateur */
-  display: flex; /* Utiliser flexbox pour centrer le contenu */
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
+/* Container */
+.container {
+  margin-top: 30px;
 }
 
-/* Conteneur principal pour centrer le contenu */
-.page-container {
+/* Card */
+.card {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+/* Categorie Menu */
+.category-menu {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Nouvelle couleur de fond */
+  transition: background-color 0.3s ease;
+}
+
+.category-menu:hover {
+  background-color: #d3e0ea; /* Couleur de fond au survol */
+}
+
+/* Categorie Menu Title */
+.category-menu .menu-title {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Categorie Menu Description */
+.category-menu .menu-description {
+  color: #666;
+}
+
+/* Animation */
+.animate-fade-in {
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.icon .cart-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* Aligner les éléments verticalement */
-}
-.wrapper {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40px; /* Ajustez la taille selon vos besoins */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f8f9fa; /* Couleur de fond du cercle */
+  text-decoration: none; /* Enlevez la décoration du lien */
+  color: #000; /* Couleur de l'icône */
+  transition: background-color 0.3s, color 0.3s; /* Transition pour l'effet de survol */
 }
 
-.scrollable-content {
-  overflow-y: auto;
-  max-height: 500px;
-  padding: 20px;
-}
-  .row {
-    margin: 0;
-  }
-  
-  /* Améliorations des éléments de la carte */
-  .card {
-    margin-top: 100px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .card-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-  }
-  .col-lg-6 {
-    max-height: 800px; /* Hauteur maximale de la div */
-    overflow-y: auto; /* Activation du défilement vertical si le contenu dépasse la hauteur */
-  }
-  
-  
-  /* Améliorations des boutons */
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-  }
-  
-  .btn-danger:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-  }
-  
-  /* Améliorations de la modal */
-  .modal-header {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
-  }
-  
-  .modal-footer {
-    border-top: 1px solid #dee2e6;
-  }
-  
-  .modal-title {
-    font-weight: bold;
-  }
-  
-  /* Améliorations des catégories */
-  .category-menu {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .category-menu:last-child {
-    border-bottom: none;
-  }
-  
-  /* Améliorations de l'icône */
-  .icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    background-color: #f8f9fa;
-    border-radius: 50%;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .icon .bi {
-    font-size: 24px;
-  }
-  
-  .icon .label {
-    font-size: 12px;
-    background-color: #dc3545;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 5px;
-    margin-left: 5px;
-  }
-  
-   .menu-prix { 
-    z-index: 3;
-    padding: 0 10px;
-    font-weight: 700;
-    font-size: 26px;
-    float: right;
-    color: #fbb43a;
+.icon .cart-icon:hover {
+  background-color: #007bff; /* Couleur de fond au survol */
+  color: #fff; /* Couleur de l'icône au survol */
+  cursor: pointer; /* Change le curseur au survol */
 }
 
- .menu-title {
-  padding-right: 10px; 
-  z-index: 3;
-  font-weight: 700;
-  font-size: 26px;
-  float: left;
-  color: rgb(0, 0, 0);
-  transition: 0.3s;
-  
+.icon .cart-icon i {
+  font-size: 1.5rem; /* Taille de l'icône */
 }
 
-.menu-ingredients { 
-  font-style: italic;
-  font-size: 14px;
-  font-family: "Poppins", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.catorie-titre{ 
-  font-size: 26px;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 7px;
-  font-weight: 700; 
-  text-transform: uppercase;
-}
-
-.souscategorie-title{ 
-  font-size: 20px;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 7px;
-  font-weight: 500; 
-  text-transform: uppercase;
-}
-
-.menu-item, .accordion-item{
-  margin: 10px;
-}
-
-.souscategorie{
-  margin: 15px;
-}

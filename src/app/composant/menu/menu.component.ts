@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
   categories: categoryMenu[] = [];
 
   public populateCategoriesMenu(): void {
-    this.marketService.getMenu(2).subscribe({
+    this.marketService.getMenu(1).subscribe({
       next: (data: MenuResponse) => {
         console.log('data',data);
         this.categories = data.menu;

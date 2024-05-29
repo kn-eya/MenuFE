@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../../service/user.service';
 import { AppUser } from '../../Models/AppUser';
+import { User } from '../../Models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -14,15 +15,15 @@ export class UsersComponent implements OnInit{
     
   ) {}
 
-users:AppUser[]=[];
+users:User[]=[];
 
 ngOnInit(): void {
   this.findAllusers();
 }
   findAllusers() {
-    // Subscribe to the observable returned by getusers()
-this.userService.getUsers( ).subscribe({
-  next: (data: AppUser[]) => {
+  if(localStorage.getItem('authority')==="Admin"){
+this.userService.getManager( ).subscribe({
+  next: (data: User[]) => {
    
     this.users = data;
   },
@@ -31,6 +32,20 @@ this.userService.getUsers( ).subscribe({
     console.error('Error fetching users:', err);
   }
 });
+  }
+  else 
+  {
+    this.userService.getAdmins( ).subscribe({
+      next: (data: User[]) => {
+       
+        this.users = data;
+      },
+      error: (err) => {
+      
+        console.error('Error fetching users:', err);
+      }
+    });
+  }
   }
   deleteuser(_t57: AppUser) {
     throw new Error('Method not implemented.');

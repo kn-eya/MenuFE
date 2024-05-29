@@ -25,7 +25,7 @@ ngOnInit(): void {
    
 }
 findArticlebyCategorie(category: number): void {
-  console.log(category)
+  console.log("id category passe   "+category)
   this. articleService.getarticlesByCategorie(category).subscribe({
     next: (articles: Article[]) => {
       // Assign the fetched events to the events property

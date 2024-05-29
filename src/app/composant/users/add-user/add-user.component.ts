@@ -24,8 +24,7 @@ export class AddUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private registrationService: RegistrationService) {
    
   }
- 
-
+  
 
   adduser(): void {
     let  userRequestDto= new UserRequestDto(); 
@@ -39,6 +38,7 @@ export class AddUserComponent implements OnInit {
     else {
       userRequestDto.roleName="Admin" ;
     }
+    console.log(userRequestDto);
     this.registrationService.registerUser(userRequestDto).subscribe(
       response => {
        

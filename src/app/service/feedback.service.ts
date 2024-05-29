@@ -23,7 +23,7 @@ export class FeedbackService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.post<Feedback>(`${environment.apiUrl}feedbacks/createFeedCmd`, feed,{ headers });
+    return this.http.post<Feedback>(`http://localhost:8081/feedbacks/createFeedCmd`, feed,{ headers });
   }
 
 
@@ -35,7 +35,7 @@ export class FeedbackService {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
     });
-    return this.http.get<Feedback[]>(`${environment.apiUrl}feedbacks/allfeed`,{ headers });
+    return this.http.get<Feedback[]>(`http://localhost:8081/feedbacks/allfeed`,{ headers });
   }
    
    updatefeedback(feed: Feedback): Observable<Feedback> {

@@ -23,7 +23,7 @@ export class RegistreComponent {
       password: ['', Validators.required],
       terms: [false, Validators.requiredTrue]
     });
-  }
+  } 
 
   onSubmit() {
     if (this.registrationForm.valid) {

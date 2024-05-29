@@ -7,6 +7,7 @@ import { RoleUserForm } from '../Models/role-user-form';
 import { Role } from '../Models/role.model';
 import { AppUser } from '../Models/AppUser';
 import { Router } from '@angular/router';
+import { User } from '../Models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -67,4 +68,29 @@ public addNewRole(appRole:Role): Observable<Role> {
     });
   return this.http.post<Role>(
       `${environment.apiUrl}/account/addRole`, appRole);
-}}
+}
+
+getManager(): Observable<User[]> {
+  console.log("test");
+  const token = localStorage.getItem('token')as string;
+  const username=localStorage.getItem('userName');
+ console.log(username);
+  // Define headers, including Content-Type and Authorization if token is available
+  const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
+  });
+  return this.http.get<User[]>(`http://localhost:8081/account/managers/{userName}`);
+}
+getAdmins(): Observable<User[]> {
+  const token = localStorage.getItem('token')as string;
+  // Define headers, including Content-Type and Authorization if token is available
+  const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token ? `Bearer ${token}` : '' // Add Authorization header if token exists
+  });
+  return this.http.get<User[]>(`http://localhost:8081/account/admins`);
+}
+
+
+}

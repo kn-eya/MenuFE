@@ -43,12 +43,20 @@ export class AddArticleComponent implements OnInit {
       description: ['', Validators.required],
     });
 
-    this.ArticleForm.controls['category'].setValue(this.categoryId);
+    if (this.categoryId) {
+      this.ArticleForm.controls['category'].setValue(this.categoryId);
+    }
+   
   }
 
   addArticle() {
     
-    const art = this.ArticleForm.value;
+    const artdata = this.ArticleForm.value;
+    let art = new Article();
+    art.categorieId=this.categoryId;
+    art.description=artdata.description;
+    art.prix=artdata.prix ;
+    art.title=artdata.titre;
     // Call the add method from the service
     this.myService.addarticle(art).subscribe({
       // Handle the successful addition of the event
